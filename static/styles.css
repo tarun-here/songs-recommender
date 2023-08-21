@@ -1,0 +1,75 @@
+body {
+    background-color: #211d1d;
+    color: white;
+}
+.song-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    justify-content: center;
+}
+
+.song-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    width: 220px;
+    margin: auto;
+    list-style: none;
+}
+.song-name {
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.artist-name {
+    font-size: 12px;
+    color: #888;
+}
+.song-item img {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+}
+
+.song-image {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #211d1d;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-links {
+    display: flex;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.navbar-links a:hover {
+    text-decoration: underline;
+}
+.white-text {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+}

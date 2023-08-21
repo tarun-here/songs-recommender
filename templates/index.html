@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Song Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="/" class="navbar-logo">Song Recommender</a>
+      <div class="navbar-links">
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+      </div>
+  </div>
+    <div class="container">
+      <h1 class="white-text">Song Recommendations</h1>
+      <form method="POST" action="/">
+        <label for="song_name">Enter Song Name:</label>
+        <input class="input-text" type="text" id="song_name" name="song_name" required>
+        <button type="submit">Search</button>
+      </form>
+      <br>
+      <h2>
+        {% if recommended_songs %}
+            Here's your recommended songs for "{{ input_song }}":
+        {% else %}
+            {% if input_song %}
+                Sorry, there's no song with the name "{{ input_song }}". It may be in the future if you make one!
+                <br>
+                If you are so sure then you might wanna check out the spelling with spotify ^_^
+            {% else %}
+                Search for best recommendations:
+            {% endif %}
+        {% endif %}
+    </h2>
+      <ul class="song-grid">
+        {% for song in recommended_songs %}
+          <li class="song-item">
+            {% if song['img'] == 'no' %}
+              <img src="{{ url_for('static', filename='Song_Image.png') }}" alt="Default Image" class="song-image">
+            {% else %}
+              <img src="{{ song['img'] }}" alt="Song Image" class="song-image">
+            {% endif %}
+            <div class="song-info">
+              <p class="song-name">{{ song['name'] }}</p>
+              <p class="artist-name">{{ song['artist'] }}</p>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>
