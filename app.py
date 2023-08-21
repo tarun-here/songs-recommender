@@ -5,9 +5,11 @@ from sklearn.neighbors import NearestNeighbors
 
 app = Flask(__name__)
 
-Songs_df1 = pd.read_pickle("Songs_df1.pkl")
-selected_features = pd.read_pickle("selected_features.pkl")
+with open("models/Songs.pkl", "rb") as songs_file:
+    Songs_df1 = pickle.load(songs_file)
 
+with open("models/selected_features_.pkl", "rb") as features_file:
+    selected_features = pickle.load(features_file)
 nn_model = NearestNeighbors(n_neighbors=11, metric='cosine')
 nn_model.fit(Songs_df1[selected_features])
 
